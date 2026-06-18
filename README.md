@@ -1,4 +1,4 @@
-# Dental Radiograph Analysis using Machine Learning
+# Dental Radiograph Analysis using Machine Learning and Deep Learning
 
 ## Project Highlights
 
@@ -6,18 +6,22 @@
 * Feature Extraction: HOG (Histogram of Oriented Gradients)
 * Texture Analysis: LBP (Local Binary Patterns)
 * Dimensionality Reduction: Principal Component Analysis (PCA)
-* Clustering Algorithm: K-Means Clustering
+* Visualization: t-SNE
+* Clustering Algorithms: K-Means and DBSCAN
+* Anomaly Detection: Isolation Forest
+* Deep Learning: VGG16-based Feature Extraction
+* Image Segmentation Components
 * Programming Language: Python
-* Frameworks: OpenCV, Scikit-Learn, NumPy, Matplotlib
+* Frameworks: TensorFlow, Scikit-Learn, OpenCV
 * Development Environment: Google Colab
 
 ---
 
 ## Overview
 
-Dental radiographs provide valuable information for the diagnosis and assessment of oral health conditions. Manual interpretation of large image datasets can be time-consuming and subject to variability. This project explores the application of classical machine learning and image-processing techniques for dental radiograph analysis.
+Dental radiographs are widely used for the diagnosis and assessment of oral health conditions. This project explores a combination of classical machine learning, computer vision, and deep learning approaches for dental image analysis.
 
-The workflow combines feature extraction, dimensionality reduction, clustering, and visualization methods to identify patterns within dental X-ray datasets. The project serves as an introduction to computational dental imaging and demonstrates how machine learning techniques can be applied to biomedical image analysis problems.
+The workflow investigates multiple strategies for feature extraction, dimensionality reduction, clustering, anomaly detection, visualization, and deep feature learning. The objective is to understand patterns within dental radiographs and establish a computational pipeline for future diagnostic and segmentation applications.
 
 ---
 
@@ -25,25 +29,26 @@ The workflow combines feature extraction, dimensionality reduction, clustering, 
 
 * Perform preprocessing of dental radiographs
 * Extract structural and texture-based image features
-* Compare feature representations using HOG and LBP
-* Reduce feature dimensionality using PCA
-* Explore image grouping using clustering techniques
-* Visualize feature distributions and image relationships
+* Explore feature-space visualization
+* Identify image clusters using unsupervised learning
+* Detect anomalous image patterns
+* Compare classical and deep-learning feature representations
+* Establish a foundation for future dental AI applications
 
 ---
 
 ## Dataset
 
-### Dental Radiograph Dataset
+### Combined Dental Radiograph Dataset
 
-The project utilizes a combined collection of publicly available dental radiographic images.
+The project utilizes a combined collection of publicly available dental radiographic datasets.
 
 ### Dataset Statistics
 
-* Total images: 5,403
+* Total Images: 5,403
 * Dental Radiography Dataset: 1,269 images
 * Teeth Segmentation Dataset: 3,588 images
-* Dental Collection Dataset: 128 images
+* Additional Dental Collection: 128 images
 * Image Type: Dental X-rays
 * Modality: 2D Radiographic Images
 
@@ -51,90 +56,103 @@ The project utilizes a combined collection of publicly available dental radiogra
 
 ## Methodology
 
-The workflow consists of four major stages:
-
 ### Image Preprocessing
 
-All images undergo preprocessing before feature extraction.
-
-#### Preprocessing Steps
-
-* Image resizing
+* Image loading and cleaning
+* Resizing and normalization
 * Grayscale conversion
-* Normalization
-* Data cleaning
-* Visualization
-
----
+* Visualization and quality inspection
 
 ### Feature Extraction
 
-Two complementary image descriptors were used.
-
 #### Histogram of Oriented Gradients (HOG)
 
-HOG captures structural information and edge orientation patterns present in dental radiographs.
-
+* Structural feature extraction
+* Edge and shape representation
 * Feature Vector Length: 512
 
 #### Local Binary Patterns (LBP)
 
-LBP captures local texture information and grayscale intensity variations.
-
+* Texture feature extraction
+* Local intensity pattern analysis
 * Feature Vector Length: 18
 
-#### Combined Feature Vector
+#### Combined Feature Representation
 
-* Total Features: 530
+* Total Feature Length: 530
 
 ---
 
 ### Dimensionality Reduction
 
-To reduce computational complexity and improve visualization, Principal Component Analysis (PCA) was applied.
-
-#### PCA Configuration
+#### Principal Component Analysis (PCA)
 
 * Input Features: 530
-* Principal Components Retained: 50
+* Reduced Feature Space: 50 Components
 
-PCA enabled visualization of complex image features while preserving important variance within the dataset.
+#### t-SNE Visualization
+
+* Non-linear visualization of image distributions
+* Cluster exploration in low-dimensional space
 
 ---
 
 ### Unsupervised Learning
 
-K-Means clustering was employed to identify image groups based on extracted features.
+#### K-Means Clustering
 
-#### Clustering Configuration
+* Cluster Identification
+* Pattern Discovery
+* Image Grouping
 
-* Number of Clusters: 5
-* Input: PCA-reduced feature space
+#### DBSCAN Clustering
 
-The clustering analysis helped identify similarities and variations among dental radiographs without requiring manual labels.
+* Density-Based Clustering
+* Outlier Detection
+* Non-linear Cluster Identification
+
+---
+
+### Anomaly Detection
+
+#### Isolation Forest
+
+* Detection of anomalous radiographs
+* Feature-space outlier analysis
+* Unsupervised abnormality identification
+
+---
+
+### Deep Learning
+
+#### VGG16 Feature Extraction
+
+* Transfer Learning
+* Deep Feature Embedding
+* High-level Image Representation
+
+#### Segmentation Components
+
+* Preliminary segmentation experiments
+* Region-based image analysis
+* Foundation for future dental segmentation models
 
 ---
 
 ## Experimental Workflow
 
-1. Dental radiograph collection and preprocessing
-2. HOG feature extraction
-3. LBP feature extraction
-4. Feature vector concatenation
-5. PCA dimensionality reduction
-6. K-Means clustering
-7. Visualization of clusters and feature distributions
-8. Analysis of image groupings
-
----
-
-## Key Results
-
-* Successfully processed 5,403 dental radiographs
-* Extracted 530-dimensional feature representations
-* Reduced feature space to 50 principal components
-* Identified image groupings using K-Means clustering
-* Demonstrated the applicability of classical machine learning techniques to dental imaging datasets
+1. Dataset Collection and Preparation
+2. Image Preprocessing
+3. HOG Feature Extraction
+4. LBP Feature Extraction
+5. PCA Dimensionality Reduction
+6. K-Means Clustering
+7. DBSCAN Clustering
+8. Isolation Forest Anomaly Detection
+9. t-SNE Visualization
+10. VGG16 Deep Feature Extraction
+11. Segmentation Analysis
+12. Results Evaluation
 
 ---
 
@@ -147,15 +165,32 @@ The clustering analysis helped identify similarities and variations among dental
 ### Computer Vision
 
 * OpenCV
-* NumPy
+* scikit-image
+* Pillow
 
 ### Machine Learning
 
 * Scikit-Learn
+* Isolation Forest
+* PCA
+* K-Means
+* DBSCAN
 
-### Data Visualization
+### Deep Learning
+
+* TensorFlow
+* Keras
+* VGG16
+
+### Data Processing
+
+* NumPy
+* Pandas
+
+### Visualization
 
 * Matplotlib
+* Seaborn
 
 ### Development Environment
 
@@ -168,9 +203,10 @@ The clustering analysis helped identify similarities and variations among dental
 * Dental Image Analysis
 * Biomedical Image Processing
 * Pattern Recognition
-* Dental Informatics
+* Anomaly Detection
 * Computer-Aided Diagnosis
 * Healthcare AI
+* Dental Informatics
 
 ---
 
@@ -178,13 +214,13 @@ The clustering analysis helped identify similarities and variations among dental
 
 Potential future extensions include:
 
-* CNN-based classification
-* Deep Learning feature extraction
-* Dental disease detection
-* Tooth segmentation using U-Net
-* GAN-based augmentation
-* Explainable AI techniques
-* Automated diagnosis systems
+* CNN-Based Classification
+* U-Net Tooth Segmentation
+* GAN-Based Data Augmentation
+* Dental Disease Detection
+* Explainable AI (Grad-CAM)
+* Multi-Class Dental Diagnosis
+* Clinical Validation Studies
 
 ---
 
@@ -194,7 +230,7 @@ dental-radiograph-analysis/
 
 ├── README.md
 
-├── Dental_Radiograph_Analysis.ipynb
+├── DENTAL_MRI.ipynb
 
 ├── requirements.txt
 
@@ -204,7 +240,7 @@ dental-radiograph-analysis/
 
 ## Conclusion
 
-This project demonstrates how classical machine learning and image-processing techniques can be applied to dental radiographs for exploratory analysis and pattern discovery. The workflow establishes a foundation for future research involving deep learning, segmentation, classification, and computer-aided dental diagnosis systems.
+This project demonstrates the application of classical machine learning, computer vision, and deep learning techniques to dental radiograph analysis. By combining feature extraction, clustering, anomaly detection, visualization, and deep feature learning, the workflow provides a foundation for future research in AI-assisted dental diagnostics and biomedical image analysis.
 
 ---
 
@@ -224,7 +260,7 @@ LinkedIn: https://www.linkedin.com/in/priyabrata-das-74244033b/
 
 ## Keywords
 
-Dental Radiography, Machine Learning, HOG, LBP, PCA, K-Means Clustering, Biomedical Image Analysis, Computer Vision, Healthcare AI, Dental Informatics
+Dental Radiography, Machine Learning, Deep Learning, HOG, LBP, PCA, t-SNE, K-Means, DBSCAN, Isolation Forest, VGG16, Biomedical Image Analysis, Computer Vision, Healthcare AI
 
 ---
 
@@ -232,14 +268,11 @@ Dental Radiography, Machine Learning, HOG, LBP, PCA, K-Means Clustering, Biomedi
 
 If you use this repository in academic work, research, or educational projects, please cite:
 
-Das, P. Dental Radiograph Analysis using Machine Learning. GitHub Repository, 2026.
-
-Repository:
-
-https://github.com/PriyabrataDas1/dental-radiograph-analysis
+Das, P. Dental Radiograph Analysis using Machine Learning and Deep Learning. GitHub Repository, 2026.
 
 ---
 
 ## License
 
 This project is released under the MIT License.
+
